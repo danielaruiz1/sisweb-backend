@@ -1,47 +1,48 @@
 "use strict";
-/** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Products", {
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class Product extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The models/index file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  Product.init(
+    {
       id: {
-        allowNull: false,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
       },
       prod_type: {
-        type: Sequelize.ENUM,
+        type: DataTypes.ENUM,
         values: ["cosmetic", "beauty", "cleaning"],
         defaultValue: "cosmetic",
       },
       name: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       price: {
-        type: Sequelize.FLOAT,
+        type: DataTypes.FLOAT,
         defaultValue: 0,
         allowNull: false,
       },
       instock: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
+        allowNull: false,
         defaultValue: 0,
-        allowNull: false,
       },
-      image: {
-        type: Sequelize.STRING,
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-    });
-  },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Products");
-  },
+      image: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Product",
+    }
+  );
+  return Product;
 };
