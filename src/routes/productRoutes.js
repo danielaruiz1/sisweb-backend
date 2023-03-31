@@ -15,7 +15,7 @@ productRouter.post("/", createProduct);
 productRouter.patch("/:id", updateProduct);
 productRouter.delete("/", deleteProduct);
 
-productRouter.get("/", (req, res) => {
+/* productRouter.get("/", (req, res) => {
   // regresa los productos, seria la direccion http://localhost:8000/producto
   res.send("Get a list of products");
 });
@@ -35,5 +35,5 @@ ${req.body.qty}`);
 productRouter.delete("/", (req, res) => {
   // "", se borra ese producto
   res.send(`Deleting the product ${req.body.id}`);
-});
+}); */
 export default productRouter; // devuelve todas las direcciones en un paquete
