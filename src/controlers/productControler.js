@@ -1,4 +1,5 @@
 import Model from "../models";
+
 const { Product } = Model;
 // Create and Save a new Product
 export const createProduct = (req, res) => {

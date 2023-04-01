@@ -1,5 +1,6 @@
 import Model from "../models";
-const { Order } = Order;
+
+const { Order } = Model;
 // Create and Save a new Order
 export const createOrder = (req, res) => {
   // Validate request
@@ -12,7 +13,7 @@ export const createOrder = (req, res) => {
     return;
   }
   // Create a Order
-  const order = {
+  const Order = {
     date: req.body.date,
     status: req.body.status,
   };

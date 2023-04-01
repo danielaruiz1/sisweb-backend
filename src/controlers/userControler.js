@@ -1,4 +1,5 @@
 import Model from "../models";
+
 const { User } = Model;
 // Create and Save a new User
 export const createUser = (req, res) => {
@@ -12,7 +13,7 @@ export const createUser = (req, res) => {
     return;
   }
   // Create a User
-  const user = {
+  const User = {
     name: req.body.name,
     phone: req.body.phone,
     email: req.body.email,

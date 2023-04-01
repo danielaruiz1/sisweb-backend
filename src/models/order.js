@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "user_id",
       });
       this.belongsToMany(models.Product, {
-        through: OrderProduct,
-      }); // no jala
+        through: "OrderProduct",
+      });
     }
   }
   Order.init(
